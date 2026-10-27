@@ -1,0 +1,198 @@
+{
+ "atualizado": "2026-10-27",
+ "simulados": [
+  {
+   "id": "rede-2026-11-06-4ano",
+   "nome": "Simulado 06/11/2026 - Português e Matemática",
+   "ano": "4º ano",
+   "data": "2026-11-06",
+   "versao": 1,
+   "alts": 4,
+   "folha": "compacta",
+   "pdf": "simulados/2026-11-06-4ano.pdf",
+   "descricao": "1ª quinzena do 4º bimestre. Prioriza os descritores que ficaram abaixo de 60% no simulado de 23/10: D12, D11, translineação, problemas de comparar (D19), D20, D23, D24, D27 e D28.",
+   "questoes": [
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D9",
+     "hab": "Identificar a finalidade de textos de diferentes gêneros."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D11",
+     "hab": "Distinguir um fato da opinião relativa a esse fato."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D2",
+     "hab": "Estabelecer relações entre partes de um texto, identificando repetições ou substituições que contribuem para a continuidade de um texto."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D4",
+     "hab": "Inferir uma informação implícita em um texto."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D12",
+     "hab": "Estabelecer relações lógico-discursivas presentes no texto, marcadas por conjunções, advérbios etc."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D1",
+     "hab": "Localizar informações explícitas em um texto."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D12",
+     "hab": "Estabelecer relações lógico-discursivas presentes no texto, marcadas por conjunções, advérbios etc."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D3",
+     "hab": "Inferir o sentido de uma palavra ou expressão."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D14",
+     "hab": "Identificar o efeito de sentido decorrente do uso da pontuação e de outras notações."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D7",
+     "hab": "Identificar o conflito gerador do enredo e os elementos que constroem a narrativa."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D8",
+     "hab": "Estabelecer relação causa/consequência entre partes e elementos do texto."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D12",
+     "hab": "Estabelecer relações lógico-discursivas presentes no texto, marcadas por conjunções, advérbios etc."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "D11",
+     "hab": "Distinguir um fato da opinião relativa a esse fato."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "SIL",
+     "hab": "Separar corretamente as palavras no fim da linha (translineação) — GO-EF35LP37."
+    },
+    {
+     "gab": "",
+     "disc": "Língua Portuguesa",
+     "desc": "CV",
+     "hab": "Identificar e usar a concordância entre substantivo ou pronome pessoal e verbo — EF04LP06."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D17",
+     "hab": "Calcular o resultado de uma adição ou subtração de números naturais."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D19",
+     "hab": "Resolver problema com números naturais, envolvendo diferentes significados da adição ou subtração."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D19",
+     "hab": "Resolver problema com números naturais, envolvendo diferentes significados da adição ou subtração."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D18",
+     "hab": "Calcular o resultado de uma multiplicação ou divisão de números naturais."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D20",
+     "hab": "Resolver problema com números naturais, envolvendo diferentes significados da multiplicação ou divisão."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D20",
+     "hab": "Resolver problema com números naturais, envolvendo diferentes significados da multiplicação ou divisão."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D20",
+     "hab": "Resolver problema com números naturais, envolvendo diferentes significados da multiplicação ou divisão."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D24",
+     "hab": "Identificar fração como representação que pode estar associada a diferentes significados."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D24",
+     "hab": "Identificar fração como representação que pode estar associada a diferentes significados."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D24",
+     "hab": "Identificar fração como representação que pode estar associada a diferentes significados."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D23",
+     "hab": "Resolver problema utilizando a escrita decimal de cédulas e moedas do sistema monetário brasileiro."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D23",
+     "hab": "Resolver problema utilizando a escrita decimal de cédulas e moedas do sistema monetário brasileiro."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D10",
+     "hab": "Num problema, estabelecer trocas entre cédulas e moedas do sistema monetário brasileiro, em função de seus valores."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D28",
+     "hab": "Ler informações e dados apresentados em gráficos (particularmente em gráficos de colunas)."
+    },
+    {
+     "gab": "",
+     "disc": "Matemática",
+     "desc": "D27",
+     "hab": "Ler informações e dados apresentados em tabelas."
+    }
+   ]
+  }
+ ]
+}

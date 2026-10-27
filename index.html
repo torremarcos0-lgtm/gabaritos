@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f3b5c">
+<meta name="description" content="Correção de simulados por leitura óptica pelo celular, com relatório por descritor.">
+<title>Leitor de Gabaritos</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gabaritos">
+<style>
+:root{--azul:#1f3b5c;--azul2:#2e5a88;--fundo:#f3f5f8;--card:#fff;--txt:#1d2430;--sub:#5b6575;--borda:#d6dce4;--verde:#2ea043;--amarelo:#f2b400;--vermelho:#d63830;--laranja:#e67800}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--txt);font-size:16px;line-height:1.45}
+header{background:var(--azul);color:#fff;padding:14px 16px 0;position:sticky;top:0;z-index:5}
+.topo{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.topo img{width:58px;height:58px;object-fit:contain;background:#fff;border-radius:12px;padding:3px;flex:none}
+#escolaTopo{font-size:13px;color:#c9d6e6;font-weight:600;line-height:1.25}
+header h1{margin:0 0 2px;font-size:19px;font-weight:700;letter-spacing:.2px}
+nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{background:none;border:0;color:#c9d6e6;padding:10px 12px;font-size:14.5px;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap;cursor:pointer;border-radius:0}
+nav button.ativo{color:#fff;border-bottom-color:#ffc94d}
+main{max-width:860px;margin:0 auto;padding:16px 16px 90px}
+h2{font-size:21px;margin:6px 0 10px}
+h3{font-size:17px;margin:24px 0 8px}
+.dica{color:var(--sub);font-size:14px;margin:6px 0 12px}
+.vazio{color:var(--sub);font-style:italic}
+label{display:block;font-weight:600;font-size:14px;margin:10px 0}
+input,select,textarea{display:block;width:100%;margin-top:5px;font:inherit;font-weight:400;padding:10px 11px;border:1px solid var(--borda);border-radius:8px;background:#fff;color:var(--txt)}
+textarea{resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--azul2);outline-offset:0;border-color:var(--azul2)}
+.chk{display:flex;align-items:center;gap:8px;font-weight:500}
+.chk input{width:auto;margin:0}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.linha3{display:grid;grid-template-columns:1fr 1fr 2fr;gap:10px}
+@media (max-width:520px){.linha2,.linha3{grid-template-columns:1fr}}
+button,.botao{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-weight:600;font-size:15px;padding:10px 16px;border-radius:9px;border:1px solid var(--borda);background:#fff;color:var(--txt);cursor:pointer;margin:0}
+.botao{font-size:15px}
+button.prim,.botao.prim{background:var(--azul2);border-color:var(--azul2);color:#fff}
+button.perigo{color:var(--vermelho);border-color:#f0c4c1}
+button:active,.botao:active{transform:translateY(1px)}
+.botoes{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.botoes.grandes>*{flex:1 1 160px;padding:14px}
+.botoes.fixo{position:sticky;bottom:0;background:linear-gradient(transparent,var(--fundo) 30%);padding:14px 0 10px;margin-bottom:0}
+.lista{display:flex;flex-direction:column;gap:8px;margin:10px 0 14px}
+.item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--borda);border-radius:10px;padding:12px 14px}
+.item small{display:block;color:var(--sub);font-size:13px}
+.mini{display:flex;gap:6px}
+.mini button{padding:7px 11px;font-size:14px}
+details.ferr{background:var(--card);border:1px solid var(--borda);border-radius:10px;padding:8px 14px;margin:12px 0}
+details.ferr summary{font-weight:700;cursor:pointer;padding:4px 0}
+details.ferr button{margin-bottom:8px}
+.tabela-rolagem{overflow-x:auto;margin:8px 0;border:1px solid var(--borda);border-radius:10px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 8px;border-bottom:1px solid #e7ebf0;text-align:left;vertical-align:middle}
+th{background:#eef2f6;font-size:13px;white-space:nowrap}
+table.ed td{padding:4px}
+table.ed input,table.ed select{margin:0;padding:7px;font-size:14px;min-width:70px}
+table.ed td:nth-child(3) input{min-width:150px}
+table.ed td:nth-child(5) input{min-width:260px}
+table.ed input.curto{min-width:64px;width:70px}
+td.n{font-weight:700;text-align:center}
+.res tr.forte td:first-child{border-left:5px solid var(--verde)}
+.res tr.medio td:first-child{border-left:5px solid var(--amarelo)}
+.res tr.fraco td:first-child{border-left:5px solid var(--vermelho)}
+.res tr.forte td:last-child{color:#1c7a33;font-weight:700}
+.res tr.medio td:last-child{color:#8a6600;font-weight:700}
+.res tr.fraco td:last-child{color:#b02a23;font-weight:700}
+.res td.forte{background:#dcf3e1}.res td.medio{background:#fff3cc}.res td.fraco{background:#fadedc}
+.res td.gabcel{background:#e1f0e4;font-weight:700}
+.res tr.na td{color:#98a1ae;font-style:italic}
+.res small.hab{display:block;color:var(--sub);font-size:12px;max-width:330px}
+.barra{height:8px;background:#e8ebef;border-radius:4px;overflow:hidden;width:90px;margin-bottom:3px}
+.barra span{display:block;height:100%;background:var(--azul2)}
+tr.forte .barra span{background:var(--verde)}tr.medio .barra span{background:var(--amarelo)}tr.fraco .barra span{background:var(--vermelho)}
+.mini-x{padding:3px 8px;font-size:12px;color:#98a1ae}
+.placar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.placar>div{flex:1 1 110px;background:var(--card);border:1px solid var(--borda);border-radius:10px;padding:10px;text-align:center;font-size:15px}
+.placar b{font-size:24px}
+.placar small{display:block;color:var(--sub);font-size:12.5px}
+.placar .forte,.placar .ok{background:#dcf3e1;border-color:#a9dcb5}
+.placar .medio{background:#fff3cc;border-color:#f0d68a}
+.placar .fraco{background:#fadedc;border-color:#efb3ae}
+.placar .alerta{background:#ffe9d1;border-color:#f3c18a}
+.cartao{background:var(--card);border:1px solid var(--borda);border-radius:12px;padding:14px;margin:12px 0}
+.cartao.erro{border-color:#efb3ae;background:#fff6f5}
+.processando{padding:30px;text-align:center;color:var(--sub);font-weight:600}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:2px 9px;margin-left:4px}
+.tag.ok{background:#dcf3e1;color:#1c7a33}
+.tag.alerta{background:#ffe9d1;color:#8a4a00;margin:6px 0}
+.previa{text-align:center;margin:10px 0}
+.previa canvas,.previa-folha canvas{max-width:100%;height:auto;border:1px solid var(--borda);border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08);touch-action:manipulation}
+.previa-folha{margin:16px 0;text-align:center}
+.previa-folha canvas{max-width:260px}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:4px 14px;margin:12px 0}
+.gq{display:flex;align-items:center;gap:4px;padding:3px 4px;border-radius:8px}
+.gq.duv{background:#ffe9d1;outline:2px solid var(--laranja)}
+.gn{font-weight:700;width:26px;font-size:14px}
+.gq button{width:36px;height:36px;padding:0;border-radius:50%;font-size:14px;border:1.5px solid #9aa4b2;color:#4a5363}
+.gq button.br{border-radius:8px;width:30px;border-style:dashed}
+.gq button.sel{background:#4a5363;color:#fff;border-color:#4a5363}
+.gq button.certo{background:var(--verde);border-color:var(--verde);color:#fff}
+.gq button.errado{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+.gq button.gab{border:2px dashed var(--verde);color:#1c7a33}
+.dupla{font-size:11px;font-weight:700;color:#8a4a00}
+.legenda{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:50%;margin-left:6px}
+.sw.certo{background:var(--verde)}.sw.errado{background:var(--vermelho)}.sw.gab{border:2px dashed var(--verde)}
+.logo-linha{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.logo-linha img{width:56px;height:56px;object-fit:contain;border:1px solid var(--borda);border-radius:8px;background:#fff}
+.aviso{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#1d2430;color:#fff;padding:11px 18px;border-radius:10px;font-size:14.5px;opacity:0;pointer-events:none;transition:.25s;max-width:calc(100% - 32px);z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.aviso.on{opacity:1;transform:translate(-50%,0)}
+.aviso.erro{background:var(--vermelho)}
+
+.tag.rede{background:#e1ebf7;color:#1f3b5c}
+.placar.pequeno>div{flex:1 1 90px;padding:8px}
+.placar.pequeno b{font-size:20px}
+td.acoes{white-space:nowrap}
+td.acoes .mini-x{margin:1px}
+.mini-x{padding:4px 9px;font-size:12.5px;color:#4a5363;border-radius:7px}
+.versao{margin-top:24px;font-size:12px}
+a.botao{text-decoration:none}
+#faixaInst{display:flex;align-items:center;gap:10px;background:#fff7e0;border-bottom:1px solid #f0d68a;padding:8px 16px;font-size:14px}
+#faixaInst span{flex:1}
+#faixaInst button{padding:6px 12px;font-size:14px}
+#tutorial{position:fixed;inset:0;background:rgba(15,25,40,.55);z-index:30;display:flex;align-items:flex-end;justify-content:center;padding:16px}
+#tutorial[hidden]{display:none!important}
+.tut-cartao{background:#fff;border-radius:16px;padding:18px 18px 8px;max-width:520px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.tut-cartao h2{margin:8px 0 6px}
+.tut-cartao p{margin:0 0 6px;font-size:15.5px}
+.tut-pontos{display:flex;gap:6px}
+.tut-pontos span{width:8px;height:8px;border-radius:50%;background:#d6dce4}
+.tut-pontos span.on{background:var(--azul2)}
+@media (min-width:700px){#tutorial{align-items:center}}
+</style>
+</head>
+<body>
+<div id="faixaInst" hidden><span>Instale o app no celular para abrir mais rápido, mesmo sem internet.</span><button class="prim" id="faixaInstBtn">Instalar</button><button id="faixaInstX" aria-label="Fechar">✕</button></div>
+<header>
+  <div class="topo"><img id="logoTopo" alt="Logotipo da escola" hidden><div><h1>Leitor de Gabaritos</h1><div id="escolaTopo"></div></div></div>
+  <nav>
+    <button data-aba="corrigir">Corrigir</button>
+    <button data-aba="resultados">Resultados</button>
+    <button data-aba="folhas">Folhas</button>
+    <button data-aba="provas">Avaliações</button>
+    <button data-aba="turmas">Turmas</button>
+    <button data-aba="config">Configurações</button>
+  </nav>
+</header>
+<main>
+  <section class="aba" id="aba-corrigir" hidden></section>
+  <section class="aba" id="aba-resultados" hidden></section>
+  <section class="aba" id="aba-folhas" hidden></section>
+  <section class="aba" id="aba-provas" hidden></section>
+  <section class="aba" id="aba-turmas" hidden></section>
+  <section class="aba" id="aba-config" hidden></section>
+</main>
+<div class="aviso" id="aviso"></div>
+<div id="tutorial" hidden></div>
+<script>var VERSAO_APP = "2.1 (out/2026)";</script>
+<script src="jspdf.min.js"></script>
+<script src="logo.js"></script>
+<script src="omr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
